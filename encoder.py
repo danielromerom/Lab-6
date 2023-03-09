@@ -1,32 +1,40 @@
 # Daniel Romero
 
-def encode(phrase):
-    phrase = str(phrase)
-    new_phrase = ""
-    for i in phrase:
-        new_phrase += str(int(i) + 3)
-    return new_phrase
+def encode(password):
+    phrase = str(password)
+    encoded_password = ""
+    for i in password:
+        encoded_password += str(int(i) + 3)
+    return encoded_password
 
 
-def decode(phrase):
+def decode(password):
     pass
 
 
 def main():
-    # looping meny
+    # looping menu
     option = "1"
     phrase = ""
-    while option != "0":
+    while option != "3":
         # print menu
-        print("0. Exit")
-        print("1. Enter a new phrase")
-        print("2. Print encoded phrase")
-        print("3. Print decoded phrase")
-        option = input ("ender an option: ")
-
+        print("Menu")
+        print("-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit")
+        print()
+        option = input("Please enter an option: ")
         if option == "1":
-            phrase = input("Enter your phrase: ")
+            password = input("Enter your password to encode: ")
+            password = encode(password)
+            print("Your password has been encoded and stored!")
+            print()
         elif option == "2":
-            print("Encoded phrase is", encode(phrase))
-        elif option == "3":
-            print("Decoded phrase is", decode(phrase))
+            print(f"The encoded password is {password}, and the original password is {decode(password)}.")
+            print()
+
+
+if __name__ == "__main__":
+    main()
+
